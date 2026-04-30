@@ -1,0 +1,74 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Каршеринг - панель управления" 
+        Height="450" Width="800"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        ResizeMode="CanResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="220"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0" Background="#F5F5F5">
+            <StackPanel Margin="15">
+                <TextBlock Text="Меню" FontSize="20" FontWeight="Bold"
+                           Margin="0,10,0,25"/>
+
+                <Button x:Name="btnClients" Content="Клиенты"
+                 Height="40" Margin="0,3" Background="#55AAFF" Click="btnClients_Click"/>
+                
+                <Button x:Name="btnCars" Content="Автомобили" 
+                        Height="40" Margin="0,3" Background="#55AAFF"
+                        Click="btnCars_Click"/> 
+
+                <Button x:Name="btnTariffs" Content="Тарифы" 
+                        Height="40" Margin="0,3" Background="#55AAFF"
+                        Click="btnTariffs_Click"/>
+
+                <Button x:Name="btnServices" Content="Услуги" 
+                        Height="40" Margin="0,3" Background="#55AAFF"
+                        Click="btnServices_Click"/>
+
+                <Button x:Name="btnOrders" Content="Заказы" 
+                        Height="40" Margin="0,3" Background="#55AAFF"
+                        Click="btnOrders_Click"/>
+
+                <Button x:Name="btnReports" Content="Отчеты о работах" 
+                        Height="40" Margin="0,3" Background="#55AAFF"
+                        Click="btnReports_Click"/>
+
+                <Separator Margin="0,15,0,10"/>
+
+                <Button x:Name="btnExit" Content="Выйти" 
+                        Height="40" Margin="0"
+                        Background="#DC3545" Foreground="White"
+                        Click="btnExit_Click"/>
+
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Column="1" Margin="10" Background="White">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock x:Name="txtTitle" Grid.Row="0" 
+                           Text="Клиенты" FontSize="22" FontWeight="Bold"
+                           Margin="15,10,15,10"/>
+
+                <Frame x:Name="mainFrame" Grid.Row="1" 
+                       NavigationUIVisibility="Hidden"/>
+            </Grid>
+        </Border>
+
+    </Grid>
+</Window>
