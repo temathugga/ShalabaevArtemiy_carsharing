@@ -61,6 +61,8 @@ namespace WpfApp1
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.Show();
             this.Close();
         }
     }

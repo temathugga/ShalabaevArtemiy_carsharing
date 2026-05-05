@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
          Title="Вход в систему" 
-        Height="350" Width="400"
+        Height="720" Width="400"
         WindowStartupLocation="CenterScreen"
         ResizeMode="CanResize">
 
@@ -19,7 +19,10 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
+
 
         <TextBlock Grid.Row="0" Text="Каршеринг" 
                    FontSize="24" FontWeight="Bold"
@@ -35,11 +38,27 @@
 
         <PasswordBox x:Name="txtPassword" Grid.Row="4" 
                      Height="30" Margin="0,0,0,20"/>
+        <Border Grid.Row="5"
+                BorderBrush="AliceBlue"
+                BorderThickness="1"
+                CornerRadius="10"
+                Padding="15"
+                Margin="0,0,0,10"
+                Background="White">
 
-        <Button x:Name="btnLogin" Grid.Row="5" Content="Войти"
+
+            <StackPanel Grid.Row="6">
+
+                <TextBlock Text="Соберите пазл:" 
+                   FontWeight="Bold" Margin="0,5,0,8"/>
+
+                <UniformGrid Name ="PuzzleGrid" Rows="2" Columns="2" Margin="10"/>
+            </StackPanel>
+        </Border>
+        <Button x:Name="btnLogin" Grid.Row="7" Content="Войти"
                 Height="35" Width="100" HorizontalAlignment="Center"
                 Background="#1A73E8" Foreground="White" FontWeight="Bold"
-                Click="btnLogin_Click" VerticalAlignment="Bottom"/>
+                Click="btnLogin_Click" VerticalAlignment="Center"/>
 
     </Grid>
 </Window>

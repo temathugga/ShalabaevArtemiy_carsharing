@@ -20,15 +20,25 @@ namespace WpfApp1
     /// </summary>
     public partial class LoginWindow : Window
     {
+        private bool PuzzleSolved = false;
         public LoginWindow()
         {
             InitializeComponent();
+            LoadPazzle();
         }
 
-        private void btnLogin_Click(object sender, RoutedEventArgs e)
+
+            private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
+            if (PuzzleSolved)
+            {
+                MessageBox.Show("Капча не решена!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
             string login = txtLogin.Text;
             string password = txtPassword.Password;
+         
 
             if (string.IsNullOrEmpty(login) && string.IsNullOrEmpty(password))
             {
@@ -59,6 +69,80 @@ namespace WpfApp1
             {
                 MessageBox.Show("Неверный логин или пароль");
             }
+        }
+
+        private Image firstButton;
+
+        private void LoadPazzle()
+        {
+            var rnd = new Random();
+            var pices = Enumerable.Range(1, 4).ToList();
+            pices = pices.OrderBy(x => rnd.Next()).ToList();
+            pices.ForEach(x =>
+            {
+                var img = new Image
+                {
+                    Source = new BitmapImage(new Uri($"images/{x}.png", UriKind.Relative)),
+                    Tag = x,
+                    Stretch = Stretch.Fill
+                };
+                img.MouseLeftButtonUp += Pices_Click;
+
+                PuzzleGrid.Children.Add(img);
+            });
+        }
+
+        private void CheckPuzzle()
+        {
+            if (PuzzleGrid.Children.OfType<Image>()
+                .Select((img, i) => i + 1 == (int)img.Tag)
+                .All(x => x))
+            {
+                MessageBox.Show("Капча решена!");
+            }
+        }
+
+        private void Pices_Click(object sender, RoutedEventArgs e)
+        {
+            if (!(sender is Image clicked)) return;
+
+            if (firstButton == null)
+            {
+                firstButton = clicked;
+                firstButton.Opacity = 0.5;
+                return;
+            }
+
+            if (clicked != firstButton)
+            {
+                (firstButton.Source, clicked.Source) = (clicked.Source, firstButton.Source);
+                (firstButton.Tag, clicked.Tag) = (clicked.Tag, firstButton.Tag);
+            }
+
+            firstButton.Opacity = 1;
+            firstButton = null;
+            CheckPuzzle();
+        }
+        private void Pices_Click(object sender, MouseButtonEventArgs e)
+        {
+            if (sender is Image clicked) {
+                if (firstButton == null)
+                {
+                    firstButton = clicked;
+                    firstButton.Opacity = 0.5;
+                    return;
+                }
+
+                if (clicked != firstButton)
+                {
+                    (firstButton.Source, clicked.Source) = (clicked.Source, firstButton.Source);
+                    (firstButton.Tag, clicked.Tag) = (clicked.Tag, firstButton.Tag);
+                }
+                firstButton.Opacity = 1;
+                firstButton = null;
+                CheckPuzzle();
+            }
+
         }
     }
 }
