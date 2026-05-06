@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -26,36 +27,35 @@ namespace WpfApp1
 
         private void btnClients_Click(object sender, RoutedEventArgs e)
         {
-            //mainFrame.Navigate(new Pages.ClientsPage());
-            //txtTitle.Text = "Клиенты";
+            mainFrame.Navigate(new ClientsPage());
         }
 
         private void btnCars_Click(object sender, RoutedEventArgs e)
         {
-            //mainFrame.Navigate(new Pages.CarsPage());
+            //mainFrame.Navigate(new CarsPage());
             //txtTitle.Text = "Автомобили";
         }
 
         private void btnTariffs_Click(object sender, RoutedEventArgs e)
         {
-            //mainFrame.Navigate(new Pages.TariffsPage());
+            //mainFrame.Navigate(new TariffsPage());
             //txtTitle.Text = "Тарифы";
         }
 
         private void btnServices_Click(object sender, RoutedEventArgs e)
         {
-            //mainFrame.Navigate(new Pages.ServicesPage());
+            //mainFrame.Navigate(new ServicesPage());
             //txtTitle.Text = "Услуги";
         }
         private void btnOrders_Click(object sender, RoutedEventArgs e)
         {
-            //mainFrame.Navigate(new Pages.OrdersPage());
+            //mainFrame.Navigate(new OrdersPage());
             //txtTitle.Text = "Заказы";
         }
 
         private void btnReports_Click(object sender, RoutedEventArgs e)
         {
-            //mainFrame.Navigate(new Pages.WorkReportsPage());
+            //mainFrame.Navigate(new WorkReportsPage());
             //txtTitle.Text = "Отчеты о работах";
         }
 
