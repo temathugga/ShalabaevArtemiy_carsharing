@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 A:\demo\WpfApp1\WpfApp1\App.xaml
-3673982281
+6-1494400316
 6-1315340781
-22509562113
+25-880732398
 20-1248266201
-ClientsPage.xaml;LoginWindow.xaml;MainWindow.xaml;
+CarsPage.xaml;ClientEditWindow.xaml;ClientsPage.xaml;LoginWindow.xaml;MainWindow.xaml;TariffsPage.xaml;
 
-True
+False
 

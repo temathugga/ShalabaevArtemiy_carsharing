@@ -30,3 +30,9 @@ A:\demo\WpfApp1\WpfApp1\bin\Debug\images\3.png
 A:\demo\WpfApp1\WpfApp1\bin\Debug\images\4.png
 A:\demo\WpfApp1\WpfApp1\obj\Debug\ClientsPage.g.cs
 A:\demo\WpfApp1\WpfApp1\obj\Debug\ClientsPage.baml
+A:\demo\WpfApp1\WpfApp1\obj\Debug\CarsPage.g.cs
+A:\demo\WpfApp1\WpfApp1\obj\Debug\CarsPage.baml
+A:\demo\WpfApp1\WpfApp1\obj\Debug\ClientEditWindow.g.cs
+A:\demo\WpfApp1\WpfApp1\obj\Debug\ClientEditWindow.baml
+A:\demo\WpfApp1\WpfApp1\obj\Debug\TariffsPage.g.cs
+A:\demo\WpfApp1\WpfApp1\obj\Debug\TariffsPage.baml

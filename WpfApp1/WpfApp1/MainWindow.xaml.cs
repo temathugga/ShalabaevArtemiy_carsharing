@@ -28,18 +28,19 @@ namespace WpfApp1
         private void btnClients_Click(object sender, RoutedEventArgs e)
         {
             mainFrame.Navigate(new ClientsPage());
+            txtTitle.Text = "Клиенты";
         }
 
         private void btnCars_Click(object sender, RoutedEventArgs e)
         {
-            //mainFrame.Navigate(new CarsPage());
-            //txtTitle.Text = "Автомобили";
+            mainFrame.Navigate(new CarsPage());
+            txtTitle.Text = "Автомобили";
         }
 
         private void btnTariffs_Click(object sender, RoutedEventArgs e)
         {
-            //mainFrame.Navigate(new TariffsPage());
-            //txtTitle.Text = "Тарифы";
+            mainFrame.Navigate(new TariffsPage());
+            txtTitle.Text = "Тарифы";
         }
 
         private void btnServices_Click(object sender, RoutedEventArgs e)
