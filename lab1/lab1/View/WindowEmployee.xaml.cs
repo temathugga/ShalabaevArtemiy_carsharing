@@ -1,20 +1,10 @@
-﻿using lab1.Helper;
-using lab1.Model;
+﻿using System.Windows;
+using lab1.Helper;
 using lab1.ViewModel;
-using System;
+using lab1.Model;
 using System.Collections.Generic;
+using System;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace lab1.View
 {
@@ -22,31 +12,26 @@ namespace lab1.View
     /// Interaction logic for WindowEmployee.xaml
     /// </summary>
     public partial class WindowEmployee : Window
+
     {
-        private PersonViewModel vmPerson;
-        private RoleViewModel vmRole;
-        private ObservableCollection<PersonDPO> personsDPO;
-        private List<Role> roles;
-
         public WindowEmployee()
-        {
+        { 
+
             InitializeComponent();
-
-            vmPerson = new PersonViewModel();
-            vmRole = new RoleViewModel();
-            roles = new List<Role>();
-
-            foreach (Role r in vmRole.ListRole)
+            PersonViewModel vmPerson = new PersonViewModel();
+            RoleViewModel vmRole = new RoleViewModel();
+            List<Role> roles = new List<Role>();
+            foreach(Role r in vmRole.ListRole)
             {
                 roles.Add(r);
             }
-
-            personsDPO = new ObservableCollection<PersonDPO>();
+            ObservableCollection<PersonDPO> persons = new ObservableCollection<PersonDPO>();
+            FindRole finder;
             foreach (var p in vmPerson.ListPerson)
             {
-                FindRole finder = new FindRole(p.RoleId);
+                finder = new FindRole(p.RoleId);
                 Role rol = roles.Find(new Predicate<Role>(finder.RolePredicate));
-                personsDPO.Add(new PersonDPO
+                persons.Add(new PersonDPO
                 {
                     Id = p.Id,
                     Role = rol.NameRole,
@@ -55,107 +40,7 @@ namespace lab1.View
                     Birthday = p.Birthday
                 });
             }
-
-            lvEmployee.ItemsSource = personsDPO;
-        }
-
-        private void btnAdd_Click(object sender, RoutedEventArgs e)
-        {
-            WindowNewEmployee wnEmployee = new WindowNewEmployee
-            {
-                Title = "Новый сотрудник",
-                Owner = this
-            };
-
-            int maxIdPerson = vmPerson.MaxId() + 1;
-            PersonDPO per = new PersonDPO
-            {
-                Id = maxIdPerson,
-                Birthday = DateTime.Now
-            };
-
-            wnEmployee.DataContext = per;
-            wnEmployee.CbRole.ItemsSource = roles;
-
-            if (wnEmployee.ShowDialog() == true)
-            {
-                Role r = (Role)wnEmployee.CbRole.SelectedValue;
-                per.Role = r.NameRole;
-                personsDPO.Add(per);
-
-                Person p = new Person();
-                p = p.CopyFromPersonDPO(per);
-                vmPerson.ListPerson.Add(p);
-            }
-        }
-
-        private void btnEdit_Click(object sender, RoutedEventArgs e)
-        {
-            WindowNewEmployee wnEmployee = new WindowNewEmployee
-            {
-                Title = "Редактирование данных",
-                Owner = this
-            };
-
-            PersonDPO perDPO = (PersonDPO)lvEmployee.SelectedValue;
-            PersonDPO tempPerDPO;
-
-            if (perDPO != null)
-            {
-                tempPerDPO = perDPO.ShallowCopy();
-                wnEmployee.DataContext = tempPerDPO;
-                wnEmployee.CbRole.ItemsSource = roles;
-                wnEmployee.CbRole.Text = tempPerDPO.Role;
-
-                if (wnEmployee.ShowDialog() == true)
-                {
-                    Role r = (Role)wnEmployee.CbRole.SelectedValue;
-                    perDPO.Role = r.NameRole;
-                    perDPO.FirstName = tempPerDPO.FirstName;
-                    perDPO.LastName = tempPerDPO.LastName;
-                    perDPO.Birthday = tempPerDPO.Birthday;
-
-                    lvEmployee.ItemsSource = null;
-                    lvEmployee.ItemsSource = personsDPO;
-
-                    FindPerson finder = new FindPerson(perDPO.Id);
-                    List<Person> listPerson = new List<Person>(vmPerson.ListPerson);
-                    Person p = listPerson.Find(new Predicate<Person>(finder.PersonPredicate));
-                    p = p.CopyFromPersonDPO(perDPO);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Необходимо выбрать сотрудника для редактирования",
-                                "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
-        }
-
-        private void btnDelete_Click(object sender, RoutedEventArgs e)
-        {
-            PersonDPO person = (PersonDPO)lvEmployee.SelectedItem;
-
-            if (person != null)
-            {
-                MessageBoxResult result = MessageBox.Show(
-                    "Удалить данные по сотруднику: \n" + person.LastName + " " + person.FirstName,
-                    "Предупреждение",
-                    MessageBoxButton.OKCancel,
-                    MessageBoxImage.Warning);
-
-                if (result == MessageBoxResult.OK)
-                {
-                    personsDPO.Remove(person);
-                    Person per = new Person();
-                    per = per.CopyFromPersonDPO(person);
-                    vmPerson.ListPerson.Remove(per);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Необходимо выбрать данные по сотруднику для удаления",
-                                "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
+            lvEmployee.ItemsSource = persons;
         }
     }
 }
