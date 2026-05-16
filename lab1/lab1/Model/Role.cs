@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace lab1.Model
 {
@@ -11,16 +6,18 @@ namespace lab1.Model
     {
         public int Id { get; set; }
         public string NameRole { get; set; }
+
         public Role() { }
+
         public Role(int id, string nameRole)
         {
-            this.Id=id;
-            this.NameRole=nameRole;
+            Id = id;
+            NameRole = nameRole;
+        }
+
+        public Role ShallowCopy()
+        {
+            return (Role)this.MemberwiseClone();
         }
     }
-    public Role ShallowCopy()
-    {
-        return (Role)this.MemberwiseClone();
-    }
-
 }

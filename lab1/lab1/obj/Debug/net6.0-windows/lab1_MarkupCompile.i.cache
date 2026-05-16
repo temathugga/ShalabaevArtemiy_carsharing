@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-A:\demo\lab1\lab1\obj\Debug\net6.0-windows\
+C:\Users\ASUS\source\repos\ShalabaevArtemiy_carsharing\lab1\lab1\obj\Debug\net6.0-windows\
 lab1
 none
 false
-TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-A:\demo\lab1\lab1\App.xaml
-4-767576110
+TRACE;DEBUG;NET;NET6_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
+C:\Users\ASUS\source\repos\ShalabaevArtemiy_carsharing\lab1\lab1\App.xaml
+5-1863846326
 
-14-1865893024
-194-200944676
-MainWindow.xaml;View\WindowEmployee.xaml;View\WindowRole.xaml;WindowNewRole.xaml;
+161989710029
+194-428577285
+MainWindow.xaml;View\WindowEmployee.xaml;View\WindowNewEmployee.xaml;View\WindowNewRole.xaml;View\WindowRole.xaml;
 
 False
 

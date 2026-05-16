@@ -10,10 +10,13 @@
     <Compile Update="View\WindowEmployee.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\WindowNewEmployee.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\WindowRole.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="WindowNewRole.xaml.cs">
+    <Compile Update="View\WindowNewRole.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -27,7 +30,7 @@
     <Page Update="View\WindowRole.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="WindowNewRole.xaml">
+    <Page Update="View\WindowNewRole.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

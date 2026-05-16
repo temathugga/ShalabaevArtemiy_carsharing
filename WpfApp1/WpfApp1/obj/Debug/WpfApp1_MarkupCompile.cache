@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-A:\demo\WpfApp1\WpfApp1\obj\Debug\
+C:\Users\ASUS\source\repos\ShalabaevArtemiy_carsharing\WpfApp1\WpfApp1\obj\Debug\
 WpfApp1
 none
 false
 DEBUG;TRACE
-A:\demo\WpfApp1\WpfApp1\App.xaml
+C:\Users\ASUS\source\repos\ShalabaevArtemiy_carsharing\WpfApp1\WpfApp1\App.xaml
 6-1494400316
 6-1315340781
 261332146280
-20-1248266201
+20-1828063267
 CarsPage.xaml;ClientEditWindow.xaml;ClientsPage.xaml;LoginWindow.xaml;MainWindow.xaml;TariffsPage.xaml;
 
 True
